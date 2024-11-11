@@ -13,8 +13,10 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 
-const router=require("./routes/goalRoutes")
-app.use("/api/goals", router);
+const GoalRouter = require("./routes/goalRoutes")
+const UserRouter=require("./routes/userRoutes")
+app.use("/api/goals", GoalRouter);
+app.use("/api/users", UserRouter);
 
 
 app.use(errorHandler)
